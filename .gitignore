@@ -1,0 +1,37 @@
+# Visual Studio temporary files, build results, and
+# user-specific files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+out/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+
+# Rider IDE
+.idea/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Ignore specific subfolders inside your project
+**/.vs/
+**/bin/
+**/obj/
+
