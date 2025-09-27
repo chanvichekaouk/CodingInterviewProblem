@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,14 @@ namespace can_place_flowers
     {
         static void Main(string[] args)
         {
-            //var result = CanPlaceFlowers(new int[] { 1, 0, 0, 0, 1 }, 1);
+            var result = CanPlaceFlowers(new int[] { 1, 0, 0, 0, 1 }, 1);
+            Debug.Assert(result.Equals(true));
 
-            //var result = CanPlaceFlowers(new int[] { 1, 0, 0, 0, 1 }, 2);
+            result = CanPlaceFlowers(new int[] { 1, 0, 0, 0, 1 }, 2);
+            Debug.Assert(result.Equals(false));
 
-            var result = CanPlaceFlowers(new int[] { 0, 0, 1, 0, 0 }, 1);
+            result = CanPlaceFlowers(new int[] { 0, 0, 1, 0, 0 }, 1);
+            Debug.Assert(result.Equals(true));
         }
 
         public static bool CanPlaceFlowers(int[] flowerbed, int n)
