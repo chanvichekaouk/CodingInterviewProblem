@@ -19,46 +19,37 @@ namespace ConsoleApp1
         public static int Compress(char[] chars)
         {
 
-            
+            int write = 0;
+            int read = 0;
 
-            Dictionary<char, int> myCharCount = new Dictionary<char, int>();
-            int count = 1;
-            char myChar = chars[0];
-            string myString = "" + chars[0];
-            for(int i=0; i< chars.Length; i++)
+            while (read < chars.Length)
             {
+                char currentChar = chars[read];
+                int count = 0;
 
-                if (chars[i] == myChar)
+                // Count the consecutive repeating characters
+                while (read < chars.Length && chars[read] == currentChar)
                 {
+                    read++;
                     count++;
                 }
-                else
-                {
-                    myString += "" + count;
-                }
 
-                //if (myCharCount.ContainsKey(c))
-                //    myCharCount[c]++;
-                //else
-                //    myCharCount[c] = 1;
+                // Write the character
+                chars[write++] = currentChar;
+
+                // Write the count if it's greater than 1
+                if (count > 1)
+                {
+                    // Convert the count to a string to handle multi-digit numbers
+                    string sCount = count.ToString();
+                    foreach (char c in sCount)
+                    {
+                        chars[write++] = c;
+                    }
+                }
             }
 
-            //string myString = "";
-            //foreach (KeyValuePair<char,int> kp in myCharCount)
-            //{
-            //    if (kp.Value == 1)
-            //    {
-            //        myString += kp.Key + "";
-            //    }
-            //    else
-            //    {
-            //        myString += kp.Key + "" + kp.Value;
-            //    }                    
-            //}
-
-            //myString.CopyTo(0, chars, 0, myString.Length);
-            //int count = myString.Length;
-            return count;
+            return write;
         }
     }
 }
